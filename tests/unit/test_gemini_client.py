@@ -244,6 +244,12 @@ def test_vertex_backend_config_tools_only_when_grounding() -> None:
     assert g.thinking_config.thinking_level == types.ThinkingLevel.LOW
 
 
+def test_vertex_backend_disables_automatic_function_calling() -> None:
+    for grounding in (False, True):
+        cfg = VertexBackend.build_config("gemini-3.1-flash-lite", grounding, 2048, 1.0, "minimal")
+        assert cfg.automatic_function_calling.disable is True
+
+
 def test_vertex_backend_thinking_by_model_family() -> None:
     v25 = VertexBackend.build_config("gemini-2.5-flash-lite", False, 2048, 1.0)
     assert v25.thinking_config.thinking_budget == 0 and v25.thinking_config.thinking_level is None

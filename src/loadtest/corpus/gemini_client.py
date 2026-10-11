@@ -252,7 +252,12 @@ class VertexBackend:
         """
         from google.genai import types
 
-        kw: dict[str, Any] = {"temperature": temperature, "max_output_tokens": max_output_tokens}
+        kw: dict[str, Any] = {
+            "temperature": temperature,
+            "max_output_tokens": max_output_tokens,
+            # 不使用函数调用：关闭 SDK 的自动函数调用（AFC），避免隐式多轮调用与日志噪音
+            "automatic_function_calling": types.AutomaticFunctionCallingConfig(disable=True),
+        }
         if grounding:
             kw["tools"] = [types.Tool(google_search=types.GoogleSearch())]
         if thinking_level is not None or _is_gemini3_plus(model):

@@ -64,9 +64,10 @@ def _setup_logging(level: str) -> None:
         handler.addFilter(RedactingFilter())
         root.addHandler(handler)
     root.setLevel(lvl)
-    # SDK 的 DEBUG 日志可能包含请求头 / 消息内容：始终 ≥ INFO
-    for name in ("openai", "httpx", "httpcore", "google", "urllib3"):
-        logging.getLogger(name).setLevel(max(lvl, logging.INFO))
+    # SDK 日志：DEBUG 可能含请求头 / 消息内容；INFO 每个请求一行（含资源名与项目 ID），压测时刷屏。
+    # 始终 ≥ WARNING；本工具自己的结果统计已覆盖请求结果。
+    for name in ("openai", "httpx", "httpcore", "google", "google_genai", "urllib3"):
+        logging.getLogger(name).setLevel(max(lvl, logging.WARNING))
 
 
 _DUR_RE = re.compile(r"^\s*(\d+(?:\.\d+)?)\s*([smh]?)\s*$", re.IGNORECASE)

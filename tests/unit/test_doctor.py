@@ -178,6 +178,14 @@ async def test_gemini_transient_error_is_warn(settings) -> None:
     assert checks["grounding"].status == "skip"
 
 
+def test_sdk_loggers_quiet_at_info() -> None:
+    import logging
+
+    cli._setup_logging("INFO")
+    for name in ("httpx", "openai", "google_genai", "google"):
+        assert logging.getLogger(name).getEffectiveLevel() >= logging.WARNING
+
+
 def test_cli_doctor_exit_codes(settings, monkeypatch) -> None:
     s, cfg_path = settings
     base = ["--config", str(cfg_path), "--env-file", str(cfg_path.parent / "none.env")]
