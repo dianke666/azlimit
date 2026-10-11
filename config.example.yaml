@@ -1,0 +1,131 @@
+# loadtest 配置示例（全部为非密钥默认值）
+# 使用：cp config.example.yaml config.yaml
+# 密钥只放在 .env：AZURE_OPENAI_API_KEY / AZURE_OPENAI_ENDPOINT / GOOGLE_APPLICATION_CREDENTIALS
+# （azure.endpoint、azure.api_key、gemini.credentials_file 不在此文件中配置）
+
+db_path: data/corpus.db
+log_dir: runs
+
+azure:
+  api_version: "2024-10-21"
+  deployment: gpt-4.1-nano
+  model_family: gpt-4.1-nano        # gpt-4.1-nano | gpt-4o-mini | gpt-4.1-mini
+  quota_tpm: 1000000
+  quota_rpm: 1000
+
+gemini:
+  project: your-gcp-project-id      # 必填：替换为你的 GCP 项目 ID
+  location: global
+  # gemini-2.0-flash-lite 已于 2026-06-01 下线；gemini-2.5-flash(-lite) 于 2026-10-20 下线
+  model_chain:
+    - gemini-3.1-flash-lite         # 主模型：最便宜
+    - gemini-3.5-flash-lite         # 备用
+    - gemini-3.8-flash              # 备用（高价，预算剩余 < 20% 时跳过）
+  expensive_models: [gemini-3.8-flash]
+  temperature: 1.0                  # Gemini 3 建议保持默认 1.0
+  thinking_levels:                  # 思考 token 按输出计费；Flash-Lite 用 minimal，3.8 Flash 最低为 low
+    gemini-3.1-flash-lite: minimal
+    gemini-3.5-flash-lite: minimal
+    gemini-3.8-flash: low
+  quota_rpm: 600
+  quota_tpm: 800000
+  usage_ratio: 0.5                  # 最多使用配额的 50% → 300 RPM / 400k TPM
+  warmup_concurrency: 32
+  replenish_rpm: 30
+  replenish_concurrency: 4
+  replenish_queue_size: 1024
+  timeout_s: 60.0
+  max_retries: 3
+  backoff_base_s: 2.0
+  backoff_cap_s: 30.0
+  failover_after_failures: 5
+  failback_after_s: 600
+  grounding_categories: [daily_news, daily_economy, sports_events]
+  grounding_daily_limit: 600        # 每日计费搜索查询上限（Gemini 3 按查询计费，≈ 200–300 篇新闻类语料）
+  grounding_reserve_queries: 3      # 每次 grounding 调用预留的查询数，成功后按实际查询数结算
+  throttle:
+    mode: level
+    levels: [0.10, 0.50, 1.00]
+    recover_full_s: 20.0
+    min_cooldown_s: 10.0
+    max_retry_after_s: 120.0
+    probe_inflight_wait_s: 30.0
+    probe_error_retry_s: 5.0
+    soft_down_ratio: 0.10
+    soft_down_floor: 0.50
+    soft_down_cooldown_s: 5.0
+
+load:
+  target_tpm: 800000
+  tpm_walk_low: 700000
+  tpm_walk_high: 850000
+  rpm_min: 200
+  rpm_max: 500
+  input_min: 1500
+  input_max: 6000
+  core_low: 2500
+  core_high: 3500
+  core_ratio: 0.80
+  max_tokens: 40
+  max_concurrency: 64
+  duration_s: 1200                  # 20 分钟
+  lang_ratio: {zh: 0.60, en: 0.40}
+  startup_ramp: [[0.0, 0.5], [10.0, 1.0]]   # (秒, 档位)
+  bucket_burst_s: 5.0
+  bucket_initial_fill_s: 2.0
+  ewma_alpha: 0.05
+  tick_interval_s: 1.0
+  drain_timeout_s: 30.0
+  walk_low_ratio: 0.875
+  walk_high_ratio: 1.0625
+  probe_max_retries: 3
+  probe_retry_interval_s: 5.0
+  pid_file: runs/loadtest.pid
+
+# Azure_Throttle（probe 模式）
+throttle:
+  mode: probe
+  levels: [0.10, 0.25, 0.50, 0.75, 1.00]
+  recover_full_s: 60.0
+  min_cooldown_s: 10.0
+  max_retry_after_s: 120.0
+  probe_inflight_wait_s: 30.0
+  probe_error_retry_s: 5.0
+  soft_down_ratio: 0.10
+  soft_down_floor: 0.50
+  soft_down_cooldown_s: 5.0
+
+corpus:
+  min_runnable: 2000
+  healthy_size: 8000
+  target_size: 15000
+  per_run_max_uses: 4
+  use_weight_alpha: 1.0
+  lang_share_tolerance: 0.05
+  supply_margin: 0.20
+  passage_min_tokens: 500
+  passage_max_tokens: 1500
+  length_buckets:
+    S: [500, 799]
+    M: [800, 1199]
+    L: [1200, 1500]
+  min_bucket_share: 0.15
+  grounded_ttl_h: 72
+
+cost:
+  azure_budget_cap_usd: 180.0
+  gemini_budget_cap_usd: 250.0      # 每个 GCP 赠金账号（$300）的上限
+  # Gemini 预算按账号独立计：默认以 gemini.project 为账号。换新 GCP 账号/项目后改 gemini.project
+  # 与 .env 的凭据即可，预算从 0 重新计；旧账号花费仍保留在账本并在 `loadtest budget` 中单列。
+  gemini_budget_account: null
+  per_run_cap_usd: null
+  safety_margin_usd: 0.5
+  # 单价（USD / 1M token）；请以 Azure / Vertex AI 官方价格页核对
+  prices:
+    gpt-4.1-nano:          {input_per_m: 0.10,  output_per_m: 0.40, cached_input_per_m: 0.025}
+    gpt-4o-mini:           {input_per_m: 0.15,  output_per_m: 0.60, cached_input_per_m: 0.075}
+    gpt-4.1-mini:          {input_per_m: 0.40,  output_per_m: 1.60, cached_input_per_m: 0.10}
+    gemini-3.1-flash-lite: {input_per_m: 0.25,  output_per_m: 1.50, cached_input_per_m: 0.025}
+    gemini-3.5-flash-lite: {input_per_m: 0.30,  output_per_m: 2.50}
+    gemini-3.8-flash:      {input_per_m: 1.50,  output_per_m: 7.50}   # 2026-12-31 前促销 0.75/3.75，按原价保守计
+    google-search-grounding: {input_per_m: 0.0, output_per_m: 0.0, per_unit: 0.014}   # Gemini 3：$14 / 1000 次（每月前 5000 次免费，未扣除）

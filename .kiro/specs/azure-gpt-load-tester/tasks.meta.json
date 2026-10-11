@@ -1,0 +1,819 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 创建项目骨架、依赖锁定与密钥忽略规则": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679207911
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679224348
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679774040
+      }
+    ],
+    "1.2 实现 Settings 加载与校验（`src/loadtest/settings.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679209051
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679781131
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791680218093
+      }
+    ],
+    "1.4 实现 token 工具（`src/loadtest/tokens.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679209215
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679782057
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791680219363
+      }
+    ],
+    "2.1 实现 schema 与 CorpusStore（`src/loadtest/db/schema.sql`、`src/loadtest/corpus/store.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679209372
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791680226823
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791680834499
+      }
+    ],
+    "3.1 创建 `taxonomy.yaml` 与 TopicTaxonomy（`src/loadtest/corpus/taxonomy.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679209489
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791680228137
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791680835800
+      }
+    ],
+    "3.2 创建任务指令库 `src/loadtest/load/tasks.yaml` 与 TaskCatalog（`src/loadtest/load/tasks.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679209574
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791680230026
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791680837641
+      }
+    ],
+    "3.3 创建 `src/loadtest/corpus/blocklist.txt` 与提示词模板（`src/loadtest/corpus/prompts.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679209658
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681304286
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681390651
+      }
+    ],
+    "4.1 实现 SafetyFilter（`src/loadtest/corpus/safety.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679209745
+      }
+    ],
+    "4.3 实现 Deduplicator 并接入 CorpusStore.insert（`src/loadtest/corpus/dedup.py`、`store.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679209857
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681304751
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681391957
+      }
+    ],
+    "5.1 实现 SupplyPlanner 缺口计算与任务输出（`src/loadtest/corpus/planner.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679209970
+      }
+    ],
+    "5.2 实现运行前供应检查 `check_for_run`（`src/loadtest/corpus/planner.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679210072
+      }
+    ],
+    "6.1 实现 DualTokenBucket（`src/loadtest/bucket.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679210163
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791680230755
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791680838955
+      }
+    ],
+    "6.4 实现 ThrottleController（`src/loadtest/throttle.py`，Azure / Gemini 共用实现，两种模式）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679210253
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791680232230
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791680840095
+      }
+    ],
+    "6.7 实现定价与 CostGuard（`src/loadtest/cost/pricing.py`、`src/loadtest/cost/guard.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679210338
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681305596
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681393263
+      }
+    ],
+    "7.1 实现 GeminiRateLimiter（`src/loadtest/corpus/gemini_limiter.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679210424
+      }
+    ],
+    "7.2 实现 ModelChain（`src/loadtest/corpus/model_chain.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679210516
+      }
+    ],
+    "7.4 实现 GeminiClient 与 gemini_call（`src/loadtest/corpus/gemini_client.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679210600
+      }
+    ],
+    "8.1 实现 WarmupRunner 与定向 generate（`src/loadtest/corpus/warmup.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679210683
+      }
+    ],
+    "9. Checkpoint - 语料子系统": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679210760
+      }
+    ],
+    "10.1 实现 LengthDistribution（`src/loadtest/load/distribution.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679210845
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791680852836
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681128146
+      }
+    ],
+    "10.4 实现 PassageIndex（`src/loadtest/corpus/index.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679210919
+      }
+    ],
+    "10.6 实现 RequestAssembler（`src/loadtest/load/assembler.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679211001
+      }
+    ],
+    "10.12 实现内容过滤隔离处理（`src/loadtest/load/quarantine.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679211120
+      }
+    ],
+    "11.1 实现 StartupRamp 与 Effective_Level（`src/loadtest/load/ramp.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679211279
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791680854708
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681132952
+      }
+    ],
+    "11.4 实现 CircuitBreaker（`src/loadtest/load/breaker.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679211357
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791680856865
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681133708
+      }
+    ],
+    "11.6 实现 classify / parse_retry_after / is_quota_error（`src/loadtest/load/azure_client.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679211437
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791680857333
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681134308
+      }
+    ],
+    "12.1 实现 AzureClient.send（`src/loadtest/load/azure_client.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679211510
+      }
+    ],
+    "13. Checkpoint - 压测核心组件": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679211588
+      }
+    ],
+    "14.1 实现 Replenisher（`src/loadtest/corpus/replenisher.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679211664
+      }
+    ],
+    "15.1 实现请求 worker 结果处理（`src/loadtest/load/worker.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679211743
+      }
+    ],
+    "15.2 实现 Scheduler 主循环（`src/loadtest/load/scheduler.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679211818
+      }
+    ],
+    "16.1 实现 RunController（`src/loadtest/load/runner.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679211902
+      }
+    ],
+    "17.1 实现指标收集器（`src/loadtest/metrics/collector.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679211977
+      }
+    ],
+    "17.2 实现控制台、JSONL 与 CSV 输出（`src/loadtest/metrics/console.py`、`src/loadtest/metrics/writers.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679212056
+      }
+    ],
+    "17.3 实现运行报告（`src/loadtest/metrics/report.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679212135
+      }
+    ],
+    "17.5 将指标接入 worker、Scheduler 与 RunController": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679212213
+      }
+    ],
+    "18.1 实现 typer CLI（`src/loadtest/cli.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679212294
+      }
+    ],
+    "19. Checkpoint - 完整系统接线": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679212396
+      }
+    ],
+    "21.1 创建 systemd 单元与部署说明（`deploy/`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679212511
+      }
+    ],
+    "22. Final checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791679212589
+      }
+    ],
+    "1. 项目骨架与配置": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791680219481
+      }
+    ],
+    "2. SQLite 存储层": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791680834579
+      }
+    ],
+    "11. 启动爬坡、熔断与错误分类": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681134409
+      }
+    ],
+    "1.3 编写 Settings 单元测试（`tests/unit/test_settings.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681196806
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681303801
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681388328
+      }
+    ],
+    "1.5 编写 token 工具单元测试（`tests/unit/test_tokens.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681198127
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681304031
+      },
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681389225
+      }
+    ],
+    "2.2 编写 CorpusStore 单元测试（`tests/unit/test_store.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681200338
+      }
+    ],
+    "3.4 编写数据文件与提示词单元测试（`tests/unit/test_taxonomy_tasks_prompts.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681202048
+      }
+    ],
+    "4.2 编写 SafetyFilter 单元测试（`tests/unit/test_safety.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681203565
+      }
+    ],
+    "4.4 编写去重属性测试（`tests/property/test_dedup.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681205383
+      }
+    ],
+    "5.3 编写 SupplyPlanner 单元测试（`tests/unit/test_planner.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681206424
+      }
+    ],
+    "5.4 编写供应检查属性测试（`tests/property/test_supply_check.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681207728
+      }
+    ],
+    "6.2 编写限流上界属性测试（`tests/property/test_bucket_bound.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681215620
+      }
+    ],
+    "6.3 编写降档生效属性测试（`tests/property/test_bucket_downshift.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681218725
+      }
+    ],
+    "6.5 编写探测后阶梯回满属性测试（`tests/property/test_throttle_recovery.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681220572
+      }
+    ],
+    "6.6 编写主动减速属性测试（`tests/property/test_throttle_soft_down.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681221879
+      }
+    ],
+    "6.8 编写成本守卫属性测试（`tests/property/test_cost_guard.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681223473
+      }
+    ],
+    "6.9 编写账本持久化属性测试（`tests/property/test_ledger.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681224528
+      }
+    ],
+    "6.10 编写探测状态机属性测试（`tests/property/test_throttle_probe.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681225695
+      }
+    ],
+    "6.11 编写 ThrottleController 单元测试（`tests/unit/test_throttle.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681226922
+      }
+    ],
+    "7.3 编写模型链属性测试（`tests/property/test_model_chain.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681232224
+      }
+    ],
+    "7.5 编写 Gemini 重试与退避属性测试（`tests/property/test_gemini_retry.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681233739
+      }
+    ],
+    "7.6 编写 GeminiClient 单元测试（`tests/unit/test_gemini_client.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681235597
+      }
+    ],
+    "8.2 编写 warmup / generate 单元测试（`tests/unit/test_warmup.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681236573
+      }
+    ],
+    "10.2 编写长度范围属性测试（`tests/property/test_length_range.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681237468
+      }
+    ],
+    "10.3 编写长度分布属性测试（`tests/property/test_length_distribution.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681238468
+      }
+    ],
+    "10.5 编写过期段落属性测试（`tests/property/test_expiry.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681239650
+      }
+    ],
+    "10.7 编写组装精度属性测试（`tests/property/test_assembler_precision.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681240636
+      }
+    ],
+    "10.8 编写段落约束属性测试（`tests/property/test_assembler_passages.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681241792
+      }
+    ],
+    "10.9 编写输出上限属性测试（`tests/property/test_assembler_max_tokens.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681243033
+      }
+    ],
+    "10.10 编写单次运行复用上限属性测试（`tests/property/test_reuse_cap.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681244564
+      }
+    ],
+    "10.11 编写语言配比属性测试（`tests/property/test_lang_ratio.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681245361
+      }
+    ],
+    "10.13 编写隔离属性测试（`tests/property/test_quarantine.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681245997
+      }
+    ],
+    "11.2 编写启动爬坡属性测试（`tests/property/test_ramp.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681247435
+      }
+    ],
+    "11.3 编写档位上界属性测试（`tests/property/test_effective_level.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681248227
+      }
+    ],
+    "11.5 编写 CircuitBreaker 单元测试（`tests/unit/test_breaker.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681248986
+      }
+    ],
+    "11.7 编写节流立即进入 HOLD 属性测试（`tests/property/test_throttle_immediate.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681249366
+      }
+    ],
+    "11.8 编写错误分类属性测试（`tests/property/test_classify.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681250035
+      }
+    ],
+    "12.2 编写 AzureClient respx 单元测试（`tests/unit/test_azure_client.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681250794
+      }
+    ],
+    "14.2 编写 Replenisher 单元测试（`tests/unit/test_replenisher.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681251366
+      }
+    ],
+    "15.3 编写全局 60 秒窗口属性测试（`tests/property/test_global_window.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681251850
+      }
+    ],
+    "15.4 编写 HOLD 零派发与 PROBE 单请求调度器属性测试（`tests/property/test_hold_no_dispatch.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681252716
+      }
+    ],
+    "15.5 编写补充任务不阻塞调度器属性测试（`tests/property/test_replenisher_isolation.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681253460
+      }
+    ],
+    "15.6 编写调度器单元测试（`tests/unit/test_scheduler.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681254260
+      }
+    ],
+    "16.2 编写优雅停止属性测试（`tests/property/test_graceful_stop.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681254728
+      }
+    ],
+    "16.3 编写供应拒绝零请求测试（`tests/unit/test_runner_supply.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681255737
+      }
+    ],
+    "16.4 编写 RunController 单元测试（`tests/unit/test_runner.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681255970
+      }
+    ],
+    "17.4 编写指标与报告单元测试（`tests/unit/test_metrics.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681256203
+      }
+    ],
+    "18.2 编写 CLI 单元测试（`tests/unit/test_cli.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681256365
+      }
+    ],
+    "20.1 编写 dry-run 集成测试（`tests/integration/test_dry_run.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681256896
+      }
+    ],
+    "20.2 编写 Mock Azure 端到端集成测试（`tests/integration/test_mock_azure.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681257477
+      }
+    ],
+    "20.3 编写 Mock Gemini warmup 集成测试（`tests/integration/test_mock_gemini.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681261351
+      }
+    ],
+    "20.4 编写供应场景集成测试（`tests/integration/test_supply_scenarios.py`）": [
+      {
+        "executionId": "0213b2d1-6c0e-467d-b503-bea6976ea030",
+        "chatSessionId": "sess_7b9a3521-bc48-49fa-9d56-3d03c4a2fe3a",
+        "timestamp": 1791681265594
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+# /etc/systemd/system/loadtest-refresh.timer
+[Unit]
+Description=Daily 06:00 grounded corpus refresh
+
+[Timer]
+OnCalendar=*-*-* 06:00:00
+Persistent=true
+Unit=loadtest-refresh.service
+
+[Install]
+WantedBy=timers.target

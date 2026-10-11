@@ -1,0 +1,12 @@
+我提供google cloud账号的json文件配置，可以调用一系列gemini的模型，提供azure账号的gpt模型的endpoint key 和部署实例等必要信息，可以调用azure 上的较多gpt模型。
+google cloud使用gemini模型的配额 Global online prediction requests per base model per minute per base_model      600    ；
+Global online prediction tokens (input + output) per minute per base model per minute per base_model  800000  ；
+azure账号的gpt模型的配额：1M/minute token，1000 requests/minute;
+
+我想对azure账号的gpt模型进行压力测试，利用gemini的低价实惠模型生产必要语料，并发向azure的低价模型发起AI请求。也就是利用gemini生产的语料输出作为azure gpt的语料输入。
+要求每分钟消耗azure gpt的token总和在800000左右，每分钟azure gpt的请求数量控制在200-500次，要求token消耗集中在输入端消耗，输入token范围在1500-6000，其中大部分请求的输入token范围在2500-3500;输出端token数量要求20-40；
+针对gemini生成的语料要求质量高，来源广，涉及的行业广泛，不要有虚假和其他有争议的话题或触发azure风控的话题，例如影视技巧，各种多媒体技巧，中国各类小说，人物传记，中外文学作品欣赏，各类论文，每日新闻，每日经济消息，
+体育赛事，厨艺，自然，电商，运动。等等话题及相关扩展。请求azure gpt的时间不要固定，要随机分布，要避免被azure风控识别。
+很重要的一点，要及时处理azure gpt模型反馈的429和其他超配额反馈，应当立即暂停或者将请求降低至10%的水平。
+
+可以手动启动测试，也可以手动关闭，或者设定运行一段固定时间。

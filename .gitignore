@@ -1,0 +1,26 @@
+# 密钥与凭据
+.env
+.env.*
+!.env.example
+credentials/
+secrets/
+*service-account*.json
+*-credentials.json
+
+# 运行数据
+data/
+runs/
+config.yaml
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+build/
+dist/
+.pytest_cache/
+.hypothesis/
+.coverage
+htmlcov/
+*.log

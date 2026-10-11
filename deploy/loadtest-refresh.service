@@ -1,0 +1,24 @@
+# /etc/systemd/system/loadtest-refresh.service
+# 由 loadtest-refresh.timer 每日 06:00 触发：刷新 grounding 类别（72h TTL）语料
+[Unit]
+Description=Refresh grounded corpus (daily_news / daily_economy / sports_events)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=loadtest
+Group=loadtest
+WorkingDirectory=/opt/a_azure_limit
+EnvironmentFile=/opt/a_azure_limit/.env
+Environment=TIKTOKEN_CACHE_DIR=/opt/a_azure_limit/data/tiktoken
+ExecStart=/opt/a_azure_limit/.venv/bin/loadtest generate --category daily_news,daily_economy,sports_events --count 300
+KillSignal=SIGTERM
+TimeoutStopSec=60
+
+# 基础加固
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/opt/a_azure_limit/data /opt/a_azure_limit/runs

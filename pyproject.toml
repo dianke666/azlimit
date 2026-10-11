@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "loadtest"
+version = "0.1.0"
+description = "Azure OpenAI GPT load tester with Gemini-generated corpus"
+requires-python = ">=3.11"
+# 精确版本见 requirements.lock
+dependencies = [
+    "openai==1.93.0",
+    "google-genai==1.75.0",  # >= 1.51.0 才支持 Gemini 3 的 thinking_level
+    "tiktoken==0.9.0",
+    "httpx==0.28.1",
+    "aiosqlite==0.21.0",
+    "pydantic==2.11.7",
+    "pydantic-settings==2.10.1",
+    "PyYAML==6.0.2",
+    "python-dotenv==1.1.1",
+    "typer==0.16.0",
+    "rich==14.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.4.1",
+    "pytest-asyncio==1.0.0",
+    "hypothesis==6.135.26",
+    "respx==0.22.0",
+]
+
+[project.scripts]
+loadtest = "loadtest.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+loadtest = ["**/*.yaml", "**/*.txt", "**/*.sql"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+markers = [
+    "integration: 需要本地 mock 服务或真实凭据的集成测试",
+]

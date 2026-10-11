@@ -1,0 +1,485 @@
+# 话题分类树：大类 → 子话题 → 体裁
+#
+# 字段说明：
+#   id        类别标识（入库 category 字段、SupplyPlanner 权重键、grounding_categories 均使用 id）
+#   zh / en   类别的中英文名称（用于构造提示词）
+#   weight    类别目标权重（> 0，按全部类别归一化）
+#   grounding 是否启用 Google Search grounding；只允许 daily_news / daily_economy / sports_events 为 true
+#   genres    可选，该类别允许的体裁子集（缺省 = 说明文、评论、教程、案例分析、摘要、对话）
+#             8 种体裁：说明文、评论、教程、案例分析、摘要、对话、书评/影评、新闻综述
+#   subtopics 10–30 个子话题，每项给出 zh 与 en 名称
+#
+# 内容约束：排除政治、宗教、暴力、色情、违法活动、医疗诊断、投资建议与争议性话题。
+# 人物传记只述公认史实；学术论文中的医学内容仅限科普层面；经济类只做数据与动态综述。
+
+version: 1
+
+categories:
+  - id: film_techniques
+    zh: 影视技巧
+    en: Filmmaking Techniques
+    weight: 1.0
+    grounding: false
+    genres: [说明文, 评论, 教程, 案例分析, 摘要, 对话, 书评/影评]
+    subtopics:
+      - {zh: 镜头语言与景别运用, en: Shot sizes and visual language}
+      - {zh: 剪辑节奏与转场设计, en: Editing rhythm and transitions}
+      - {zh: 电影调色与色彩情绪, en: Color grading and emotional tone}
+      - {zh: 三点布光与自然光运用, en: Three-point lighting and natural light}
+      - {zh: 分镜脚本绘制方法, en: Storyboarding methods}
+      - {zh: 纪录片叙事结构, en: Narrative structure in documentaries}
+      - {zh: 电影声音设计与拟音, en: Film sound design and Foley}
+      - {zh: 长镜头的调度与表现力, en: Staging and expressiveness of long takes}
+      - {zh: 运动镜头与稳定器拍摄, en: Camera movement and gimbal shooting}
+      - {zh: 场面调度与演员走位, en: Mise-en-scene and actor blocking}
+      - {zh: 电影配乐与情绪引导, en: Film scoring and emotional guidance}
+      - {zh: 动画电影的视觉风格, en: Visual styles of animated films}
+      - {zh: 经典电影构图分析, en: Composition analysis of classic films}
+      - {zh: 短片创作的预算与筹备, en: Budgeting and pre-production for short films}
+      - {zh: 视觉特效与绿幕合成, en: Visual effects and green-screen compositing}
+      - {zh: 影片节奏与三幕式结构, en: Pacing and three-act structure}
+
+  - id: multimedia_skills
+    zh: 多媒体技巧
+    en: Multimedia Skills
+    weight: 1.0
+    grounding: false
+    genres: [说明文, 评论, 教程, 案例分析, 摘要, 对话]
+    subtopics:
+      - {zh: 摄影构图的基本法则, en: Basic rules of photographic composition}
+      - {zh: 人像后期修图流程, en: Portrait retouching workflow}
+      - {zh: 播客策划与录制, en: Podcast planning and recording}
+      - {zh: 短视频脚本写作, en: Writing scripts for short videos}
+      - {zh: 界面动效设计原则, en: Principles of UI motion design}
+      - {zh: 3D 建模入门, en: Getting started with 3D modeling}
+      - {zh: 风光摄影的光线把握, en: Working with light in landscape photography}
+      - {zh: 平面设计中的字体搭配, en: Font pairing in graphic design}
+      - {zh: 信息图表的可视化设计, en: Designing infographics and data visualization}
+      - {zh: 视频字幕与无障碍呈现, en: Video captions and accessible presentation}
+      - {zh: 手机摄影的实用技巧, en: Practical smartphone photography tips}
+      - {zh: 音频降噪与混音基础, en: Audio noise reduction and mixing basics}
+      - {zh: 演示文稿的视觉设计, en: Visual design for presentations}
+      - {zh: 品牌视觉识别系统, en: Brand visual identity systems}
+      - {zh: 延时摄影与慢动作拍摄, en: Time-lapse and slow-motion shooting}
+
+  - id: chinese_novels
+    zh: 中国小说
+    en: Chinese Fiction
+    weight: 1.0
+    grounding: false
+    genres: [说明文, 评论, 摘要, 对话, 书评/影评, 案例分析]
+    subtopics:
+      - {zh: 《红楼梦》的人物群像, en: The ensemble of characters in Dream of the Red Chamber}
+      - {zh: 《西游记》的神话想象, en: Mythic imagination in Journey to the West}
+      - {zh: 《水浒传》的叙事结构, en: Narrative structure of Water Margin}
+      - {zh: 《三国演义》的历史与虚构, en: History and fiction in Romance of the Three Kingdoms}
+      - {zh: 金庸武侠小说的江湖世界, en: The jianghu world of Jin Yong's wuxia novels}
+      - {zh: 古龙小说的语言风格, en: Gu Long's prose style}
+      - {zh: 鲁迅小说中的乡土与人物, en: Rural life and characters in Lu Xun's fiction}
+      - {zh: 沈从文《边城》的诗意书写, en: Poetic writing in Shen Congwen's Border Town}
+      - {zh: 老舍笔下的北京市井, en: Everyday Beijing in Lao She's novels}
+      - {zh: 钱钟书《围城》的讽刺艺术, en: The satire of Qian Zhongshu's Fortress Besieged}
+      - {zh: 张爱玲小说的意象运用, en: Imagery in Eileen Chang's fiction}
+      - {zh: 当代乡土小说的发展, en: Development of contemporary rural fiction}
+      - {zh: 科幻小说《三体》的宇宙观, en: The cosmic vision of The Three-Body Problem}
+      - {zh: 网络文学的类型与演变, en: Genres and evolution of Chinese web fiction}
+      - {zh: 明清话本与短篇小说, en: Ming and Qing vernacular short stories}
+      - {zh: 小说中的人物塑造技巧, en: Characterization techniques in Chinese fiction}
+      - {zh: 《聊斋志异》的志怪传统, en: The tradition of strange tales in Liaozhai}
+
+  - id: biographies
+    zh: 人物传记
+    en: Biographies
+    weight: 1.0
+    grounding: false
+    genres: [说明文, 评论, 摘要, 案例分析, 书评/影评]
+    subtopics:
+      - {zh: 居里夫人的科学之路, en: Marie Curie's scientific journey}
+      - {zh: 爱因斯坦与相对论的诞生, en: Einstein and the birth of relativity}
+      - {zh: 屠呦呦与青蒿素研究, en: Tu Youyou and artemisinin research}
+      - {zh: 袁隆平与杂交水稻, en: Yuan Longping and hybrid rice}
+      - {zh: 达·芬奇的艺术与发明, en: Leonardo da Vinci's art and inventions}
+      - {zh: 梵高的绘画生涯, en: Van Gogh's painting career}
+      - {zh: 贝多芬的音乐成就, en: Beethoven's musical achievements}
+      - {zh: 齐白石的艺术风格, en: The artistic style of Qi Baishi}
+      - {zh: 苏轼的文学人生, en: The literary life of Su Shi}
+      - {zh: 李白的诗歌与漫游, en: Li Bai's poetry and travels}
+      - {zh: 图灵与计算理论, en: Alan Turing and the theory of computation}
+      - {zh: 爱迪生与电气时代, en: Edison and the electrical age}
+      - {zh: 福特与流水线生产, en: Henry Ford and assembly-line production}
+      - {zh: 乔布斯与个人电脑产业, en: Steve Jobs and the personal computer industry}
+      - {zh: 迈克尔·乔丹的篮球生涯, en: Michael Jordan's basketball career}
+      - {zh: 郎平的排球人生, en: Lang Ping's life in volleyball}
+      - {zh: 詹天佑与京张铁路, en: Zhan Tianyou and the Beijing-Zhangjiakou Railway}
+      - {zh: 徐霞客的地理考察, en: Xu Xiake's geographical explorations}
+
+  - id: literature_appreciation
+    zh: 中外文学欣赏
+    en: World Literature Appreciation
+    weight: 1.0
+    grounding: false
+    genres: [说明文, 评论, 摘要, 对话, 书评/影评, 教程]
+    subtopics:
+      - {zh: 唐诗的意境之美, en: The artistic conception of Tang poetry}
+      - {zh: 宋词的婉约与豪放, en: Graceful and bold styles of Song ci}
+      - {zh: 元曲的语言特色, en: Language features of Yuan qu}
+      - {zh: 《诗经》的比兴手法, en: Metaphor and evocation in the Book of Songs}
+      - {zh: 莎士比亚四大悲剧, en: Shakespeare's four great tragedies}
+      - {zh: 托尔斯泰的长篇小说, en: Tolstoy's major novels}
+      - {zh: 陀思妥耶夫斯基的心理描写, en: Psychological depth in Dostoevsky}
+      - {zh: 拉美魔幻现实主义, en: Latin American magical realism}
+      - {zh: 日本俳句的季语, en: Seasonal words in Japanese haiku}
+      - {zh: 村上春树的叙事风格, en: Haruki Murakami's narrative style}
+      - {zh: 简·奥斯汀的社会观察, en: Social observation in Jane Austen}
+      - {zh: 狄更斯笔下的伦敦, en: Dickens's London}
+      - {zh: 海明威的冰山理论, en: Hemingway's iceberg theory}
+      - {zh: 法国象征主义诗歌, en: French Symbolist poetry}
+      - {zh: 泰戈尔的抒情诗, en: Tagore's lyric poetry}
+      - {zh: 古典散文《赤壁赋》赏析, en: Appreciating the classical prose Ode to the Red Cliff}
+      - {zh: 童话文学的演变, en: The evolution of fairy-tale literature}
+
+  - id: academic_papers
+    zh: 学术论文
+    en: Academic Research
+    weight: 1.0
+    grounding: false
+    genres: [说明文, 摘要, 评论, 案例分析, 教程]
+    subtopics:
+      - {zh: 大语言模型的注意力机制, en: Attention mechanisms in large language models}
+      - {zh: 分布式系统的一致性协议, en: Consensus protocols in distributed systems}
+      - {zh: 图神经网络的基本原理, en: Fundamentals of graph neural networks}
+      - {zh: 锂离子电池正极材料研究, en: Research on lithium-ion battery cathode materials}
+      - {zh: 钙钛矿太阳能电池进展, en: Progress in perovskite solar cells}
+      - {zh: 基因编辑技术的原理, en: How gene-editing technology works}
+      - {zh: 免疫系统工作原理科普, en: How the immune system works (popular science)}
+      - {zh: 肠道微生物组研究概览, en: Overview of gut microbiome research}
+      - {zh: 计量经济学中的因果推断, en: Causal inference in econometrics}
+      - {zh: 行为经济学的经典实验, en: Classic experiments in behavioral economics}
+      - {zh: 教育学中的翻转课堂研究, en: Research on flipped classrooms in education}
+      - {zh: 认知心理学与记忆研究, en: Cognitive psychology and memory research}
+      - {zh: 气候模型的构建方法, en: How climate models are built}
+      - {zh: 量子计算的基本概念, en: Basic concepts of quantum computing}
+      - {zh: 文献综述的写作方法, en: How to write a literature review}
+      - {zh: 同行评审制度的运作, en: How peer review works}
+      - {zh: 城市交通流建模, en: Urban traffic flow modeling}
+      - {zh: 语言学中的语料库方法, en: Corpus methods in linguistics}
+
+  - id: daily_news
+    zh: 每日新闻
+    en: Daily News
+    weight: 0.6
+    grounding: true
+    genres: [新闻综述, 摘要]
+    subtopics:
+      - {zh: 人工智能技术新进展, en: New developments in artificial intelligence}
+      - {zh: 消费电子新品发布, en: New consumer electronics launches}
+      - {zh: 航天探索任务动态, en: Space exploration mission updates}
+      - {zh: 科学研究新发现, en: New scientific discoveries}
+      - {zh: 新能源汽车技术动态, en: Electric vehicle technology updates}
+      - {zh: 博物馆与文化展览, en: Museum and cultural exhibitions}
+      - {zh: 电影与图书新作上映出版, en: New film releases and book publications}
+      - {zh: 音乐节与演出活动, en: Music festivals and live performances}
+      - {zh: 城市公共交通建设, en: Urban public transit projects}
+      - {zh: 天气与季节性气候现象, en: Weather and seasonal climate phenomena}
+      - {zh: 野生动物保护进展, en: Wildlife conservation progress}
+      - {zh: 软件与互联网服务更新, en: Software and internet service updates}
+      - {zh: 考古发现与文物修复, en: Archaeological finds and artifact restoration}
+      - {zh: 旅游出行与节假日动态, en: Travel and holiday trends}
+
+  - id: daily_economy
+    zh: 每日经济
+    en: Daily Economy
+    weight: 0.6
+    grounding: true
+    genres: [新闻综述, 摘要, 案例分析]
+    subtopics:
+      - {zh: 宏观经济数据发布, en: Macroeconomic data releases}
+      - {zh: 制造业采购经理指数, en: Manufacturing purchasing managers' index}
+      - {zh: 消费者物价指数变化, en: Changes in the consumer price index}
+      - {zh: 就业市场数据, en: Labor market data}
+      - {zh: 上市公司季度财报, en: Quarterly earnings of listed companies}
+      - {zh: 半导体行业动态, en: Semiconductor industry updates}
+      - {zh: 新能源产业动态, en: Renewable energy industry updates}
+      - {zh: 零售与消费市场动态, en: Retail and consumer market updates}
+      - {zh: 国际大宗商品价格走势, en: International commodity price movements}
+      - {zh: 航运与物流行业动态, en: Shipping and logistics industry updates}
+      - {zh: 汽车产销数据, en: Automobile production and sales data}
+      - {zh: 房地产市场统计数据, en: Real estate market statistics}
+      - {zh: 进出口贸易数据, en: Import and export trade data}
+      - {zh: 科技企业新产品与业务动态, en: Product and business updates from tech companies}
+
+  - id: sports_events
+    zh: 体育赛事
+    en: Sports Events
+    weight: 0.6
+    grounding: true
+    genres: [新闻综述, 摘要, 案例分析]
+    subtopics:
+      - {zh: 欧洲足球联赛赛况, en: European football league results}
+      - {zh: 中国足球超级联赛赛况, en: Chinese Super League results}
+      - {zh: NBA 常规赛与季后赛, en: NBA regular season and playoffs}
+      - {zh: CBA 联赛赛况, en: CBA league results}
+      - {zh: 网球大满贯赛事, en: Tennis Grand Slam tournaments}
+      - {zh: 田径赛事成绩, en: Track and field results}
+      - {zh: 游泳赛事成绩, en: Swimming competition results}
+      - {zh: 乒乓球国际赛事, en: International table tennis events}
+      - {zh: 羽毛球国际赛事, en: International badminton events}
+      - {zh: 一级方程式赛车, en: Formula One racing}
+      - {zh: 电子竞技赛事回顾, en: Esports tournament recaps}
+      - {zh: 马拉松赛事, en: Marathon events}
+      - {zh: 排球联赛与国际赛, en: Volleyball leagues and international matches}
+      - {zh: 足球比赛战术分析, en: Tactical analysis of football matches}
+
+  - id: cooking
+    zh: 厨艺
+    en: Cooking
+    weight: 1.0
+    grounding: false
+    genres: [说明文, 教程, 评论, 案例分析, 对话, 摘要]
+    subtopics:
+      - {zh: 川菜的味型与调料, en: Flavor profiles and seasonings of Sichuan cuisine}
+      - {zh: 粤菜的烹饪技法, en: Cooking techniques of Cantonese cuisine}
+      - {zh: 鲁菜的历史与代表菜, en: History and signature dishes of Shandong cuisine}
+      - {zh: 淮扬菜的刀工, en: Knife skills in Huaiyang cuisine}
+      - {zh: 湘菜与浙菜的风味对比, en: Comparing Hunan and Zhejiang cuisines}
+      - {zh: 家庭烘焙面包入门, en: Home bread baking for beginners}
+      - {zh: 法式甜点的制作要点, en: Key points of French pastry making}
+      - {zh: 意大利面与酱汁搭配, en: Pairing pasta with sauces}
+      - {zh: 牛排的火候控制, en: Controlling doneness when cooking steak}
+      - {zh: 均衡膳食的搭配原则, en: Principles of a balanced diet}
+      - {zh: 食材的清洗与刀工处理, en: Washing and cutting ingredients}
+      - {zh: 发酵食品的制作, en: Making fermented foods}
+      - {zh: 汤品的熬制技巧, en: Techniques for making soups and stocks}
+      - {zh: 日式料理的高汤文化, en: Dashi culture in Japanese cuisine}
+      - {zh: 节令食材与时令菜, en: Seasonal ingredients and dishes}
+      - {zh: 厨房工具的选择与保养, en: Choosing and caring for kitchen tools}
+      - {zh: 茶的冲泡与品鉴, en: Brewing and tasting tea}
+
+  - id: nature
+    zh: 自然
+    en: Nature
+    weight: 1.0
+    grounding: false
+    genres: [说明文, 摘要, 评论, 对话, 教程]
+    subtopics:
+      - {zh: 候鸟的迁徙路线, en: Migration routes of birds}
+      - {zh: 热带雨林的生态系统, en: Tropical rainforest ecosystems}
+      - {zh: 珊瑚礁的形成与保护, en: Formation and protection of coral reefs}
+      - {zh: 喀斯特地貌的成因, en: How karst landscapes form}
+      - {zh: 冰川的运动与变化, en: Glacier movement and change}
+      - {zh: 火山与板块构造, en: Volcanoes and plate tectonics}
+      - {zh: 四季星空观测指南, en: A seasonal guide to stargazing}
+      - {zh: 太阳系行星概览, en: An overview of the solar system's planets}
+      - {zh: 云的种类与天气预兆, en: Cloud types and weather signs}
+      - {zh: 季风气候的形成, en: How monsoon climates form}
+      - {zh: 湿地生态与水鸟, en: Wetland ecology and waterbirds}
+      - {zh: 大熊猫的栖息地保护, en: Habitat protection for giant pandas}
+      - {zh: 昆虫的变态发育, en: Metamorphosis in insects}
+      - {zh: 植物的光合作用, en: Photosynthesis in plants}
+      - {zh: 深海生物的适应机制, en: Adaptations of deep-sea creatures}
+      - {zh: 沙漠植物的生存策略, en: Survival strategies of desert plants}
+      - {zh: 极光的形成原理, en: How auroras form}
+
+  - id: ecommerce
+    zh: 电商
+    en: E-commerce
+    weight: 1.0
+    grounding: false
+    genres: [说明文, 教程, 案例分析, 评论, 对话, 摘要]
+    subtopics:
+      - {zh: 选品的市场调研方法, en: Market research methods for product selection}
+      - {zh: 店铺运营的核心指标, en: Key metrics for online store operations}
+      - {zh: 商品详情页文案写作, en: Writing product detail page copy}
+      - {zh: 电商物流与仓储管理, en: E-commerce logistics and warehousing}
+      - {zh: 客服沟通话术, en: Customer service communication scripts}
+      - {zh: 电商数据分析入门, en: Introduction to e-commerce analytics}
+      - {zh: 直播电商的运营流程, en: Live-stream commerce operations}
+      - {zh: 跨境电商的物流方案, en: Logistics options for cross-border e-commerce}
+      - {zh: 会员体系与用户留存, en: Membership programs and customer retention}
+      - {zh: 促销活动的策划, en: Planning promotional campaigns}
+      - {zh: 退换货流程优化, en: Optimizing returns and exchanges}
+      - {zh: 商品摄影与主图设计, en: Product photography and hero images}
+      - {zh: 搜索排序与关键词优化, en: Search ranking and keyword optimization}
+      - {zh: 供应链库存周转, en: Supply chain inventory turnover}
+      - {zh: 私域流量的社群运营, en: Community operations for owned audiences}
+
+  - id: fitness
+    zh: 运动
+    en: Fitness and Exercise
+    weight: 1.0
+    grounding: false
+    genres: [说明文, 教程, 案例分析, 对话, 评论, 摘要]
+    subtopics:
+      - {zh: 新手健身计划制定, en: Building a beginner workout plan}
+      - {zh: 跑步姿势与步频, en: Running form and cadence}
+      - {zh: 马拉松训练周期, en: Marathon training cycles}
+      - {zh: 瑜伽基础体式, en: Basic yoga poses}
+      - {zh: 运动前热身与运动后拉伸, en: Warm-ups and post-exercise stretching}
+      - {zh: 力量训练的动作要领, en: Form essentials in strength training}
+      - {zh: 游泳换气技巧, en: Breathing techniques in swimming}
+      - {zh: 户外徒步装备选择, en: Choosing hiking gear}
+      - {zh: 骑行路线规划, en: Planning cycling routes}
+      - {zh: 运动后的恢复与休息, en: Recovery and rest after exercise}
+      - {zh: 核心力量训练, en: Core strength training}
+      - {zh: 办公室久坐人群的活动建议, en: Movement tips for desk workers}
+      - {zh: 跳绳与间歇训练, en: Jump rope and interval training}
+      - {zh: 太极拳的动作特点, en: Characteristics of tai chi movements}
+      - {zh: 登山运动的体能准备, en: Physical preparation for mountaineering}
+      - {zh: 运动手表的数据解读, en: Reading data from sports watches}
+
+  # ---------------- 扩展类别 ----------------
+
+  - id: architecture_design
+    zh: 建筑设计
+    en: Architecture and Design
+    weight: 0.6
+    grounding: false
+    subtopics:
+      - {zh: 中国古典园林的造园手法, en: Design techniques of classical Chinese gardens}
+      - {zh: 榫卯结构的智慧, en: The ingenuity of mortise-and-tenon joinery}
+      - {zh: 包豪斯设计理念, en: Bauhaus design principles}
+      - {zh: 哥特式建筑的特征, en: Features of Gothic architecture}
+      - {zh: 现代主义建筑大师作品, en: Works of modernist architecture masters}
+      - {zh: 被动式节能建筑, en: Passive energy-efficient buildings}
+      - {zh: 城市更新与旧建筑改造, en: Urban renewal and adaptive reuse}
+      - {zh: 室内采光设计, en: Interior daylighting design}
+      - {zh: 徽派民居的建筑特色, en: Architectural features of Huizhou dwellings}
+      - {zh: 桥梁结构的类型, en: Types of bridge structures}
+      - {zh: 无障碍空间设计, en: Accessible space design}
+      - {zh: 木结构建筑的复兴, en: The revival of timber construction}
+
+  - id: music_theory
+    zh: 音乐理论
+    en: Music Theory
+    weight: 0.6
+    grounding: false
+    subtopics:
+      - {zh: 五线谱识读入门, en: Introduction to reading staff notation}
+      - {zh: 和弦与和声进行, en: Chords and harmonic progressions}
+      - {zh: 调式与音阶, en: Modes and scales}
+      - {zh: 节奏与拍号, en: Rhythm and time signatures}
+      - {zh: 中国五声音阶, en: The Chinese pentatonic scale}
+      - {zh: 交响乐团的乐器编制, en: Instrumentation of the symphony orchestra}
+      - {zh: 古筝的演奏技法, en: Guzheng playing techniques}
+      - {zh: 爵士乐的即兴演奏, en: Improvisation in jazz}
+      - {zh: 流行歌曲的曲式结构, en: Song structure in popular music}
+      - {zh: 古典音乐的奏鸣曲式, en: Sonata form in classical music}
+      - {zh: 电子音乐制作基础, en: Basics of electronic music production}
+      - {zh: 视唱练耳训练方法, en: Ear training and sight-singing methods}
+
+  - id: gardening
+    zh: 园艺
+    en: Gardening
+    weight: 0.5
+    grounding: false
+    subtopics:
+      - {zh: 阳台种菜入门, en: Growing vegetables on a balcony}
+      - {zh: 多肉植物的养护, en: Caring for succulents}
+      - {zh: 月季的修剪技巧, en: Pruning roses}
+      - {zh: 盆景的造型艺术, en: The art of shaping bonsai}
+      - {zh: 家庭堆肥方法, en: Home composting methods}
+      - {zh: 室内绿植的光照需求, en: Light requirements of indoor plants}
+      - {zh: 兰花的栽培要点, en: Key points of orchid cultivation}
+      - {zh: 土壤酸碱度与改良, en: Soil pH and improvement}
+      - {zh: 球根花卉的种植, en: Planting flowering bulbs}
+      - {zh: 节水灌溉方式, en: Water-saving irrigation methods}
+      - {zh: 扦插繁殖技巧, en: Propagating plants from cuttings}
+      - {zh: 庭院景观的植物搭配, en: Plant combinations for garden landscapes}
+
+  - id: travel_geography
+    zh: 旅行地理
+    en: Travel and Geography
+    weight: 0.6
+    grounding: false
+    subtopics:
+      - {zh: 丝绸之路沿线风光, en: Scenery along the Silk Road}
+      - {zh: 青藏高原的自然景观, en: Natural landscapes of the Tibetan Plateau}
+      - {zh: 江南水乡古镇, en: Water towns south of the Yangtze}
+      - {zh: 云南的多样地貌, en: The diverse terrain of Yunnan}
+      - {zh: 挪威峡湾地貌, en: The fjords of Norway}
+      - {zh: 冰岛的地热景观, en: Geothermal landscapes of Iceland}
+      - {zh: 撒哈拉沙漠的地理特征, en: Geographic features of the Sahara}
+      - {zh: 亚马孙河流域, en: The Amazon River basin}
+      - {zh: 长途旅行的行程规划, en: Planning long-distance trips}
+      - {zh: 世界文化遗产古城, en: Historic cities on the World Heritage list}
+      - {zh: 国家公园的游览方式, en: Ways to explore national parks}
+      - {zh: 铁路旅行的魅力, en: The appeal of rail travel}
+      - {zh: 海岛旅行的季节选择, en: Choosing the right season for island trips}
+
+  - id: programming_basics
+    zh: 编程入门
+    en: Programming Basics
+    weight: 0.8
+    grounding: false
+    subtopics:
+      - {zh: 变量与数据类型, en: Variables and data types}
+      - {zh: 条件判断与循环, en: Conditionals and loops}
+      - {zh: 函数的设计与复用, en: Designing and reusing functions}
+      - {zh: 面向对象编程基础, en: Fundamentals of object-oriented programming}
+      - {zh: 常见排序算法, en: Common sorting algorithms}
+      - {zh: Git 版本控制入门, en: Getting started with Git version control}
+      - {zh: 单元测试的编写, en: Writing unit tests}
+      - {zh: 数据库与 SQL 基础, en: Database and SQL basics}
+      - {zh: HTTP 协议与网页请求, en: HTTP and web requests}
+      - {zh: 递归思想, en: Thinking recursively}
+      - {zh: 代码可读性与命名规范, en: Code readability and naming conventions}
+      - {zh: 异步编程的基本概念, en: Basic concepts of asynchronous programming}
+      - {zh: 常用数据结构, en: Common data structures}
+      - {zh: 调试程序的方法, en: Techniques for debugging programs}
+
+  - id: crafts
+    zh: 手工艺
+    en: Handicrafts
+    weight: 0.5
+    grounding: false
+    subtopics:
+      - {zh: 剪纸艺术的技法, en: Techniques of paper cutting}
+      - {zh: 陶艺拉坯入门, en: Getting started with wheel-throwing pottery}
+      - {zh: 刺绣的针法种类, en: Types of embroidery stitches}
+      - {zh: 木工榫接制作, en: Making woodworking joints}
+      - {zh: 编织毛衣的基本针法, en: Basic stitches for knitting sweaters}
+      - {zh: 皮具手缝工艺, en: Hand-stitching leather goods}
+      - {zh: 景泰蓝的制作工艺, en: The craft of cloisonne}
+      - {zh: 扎染与蓝染, en: Tie-dye and indigo dyeing}
+      - {zh: 书法的笔法与结构, en: Brushwork and structure in calligraphy}
+      - {zh: 折纸的几何原理, en: The geometry of origami}
+      - {zh: 手工香皂的制作, en: Making handmade soap}
+      - {zh: 风筝的扎制与放飞, en: Building and flying kites}
+
+  - id: pets
+    zh: 宠物饲养
+    en: Pet Care
+    weight: 0.5
+    grounding: false
+    subtopics:
+      - {zh: 幼犬的日常训练, en: Everyday training for puppies}
+      - {zh: 猫咪的饮食搭配, en: Feeding cats a balanced diet}
+      - {zh: 观赏鱼的水质管理, en: Water quality for aquarium fish}
+      - {zh: 鹦鹉的饲养环境, en: Housing parrots}
+      - {zh: 仓鼠的笼舍布置, en: Setting up a hamster habitat}
+      - {zh: 宠物的日常梳毛, en: Routine grooming for pets}
+      - {zh: 犬种的性格特点, en: Temperament of different dog breeds}
+      - {zh: 带宠物出行的准备, en: Preparing to travel with pets}
+      - {zh: 宠物行为的理解, en: Understanding pet behavior}
+      - {zh: 乌龟的饲养要点, en: Key points of keeping turtles}
+      - {zh: 新手养猫的准备清单, en: A checklist for first-time cat owners}
+      - {zh: 宠物玩具与环境丰富化, en: Pet toys and environmental enrichment}
+
+  - id: home_organization
+    zh: 家居收纳
+    en: Home Organization
+    weight: 0.5
+    grounding: false
+    subtopics:
+      - {zh: 衣柜分区收纳, en: Organizing a wardrobe by zones}
+      - {zh: 小户型空间利用, en: Making the most of small apartments}
+      - {zh: 厨房收纳方案, en: Kitchen storage solutions}
+      - {zh: 断舍离的整理思路, en: The decluttering mindset}
+      - {zh: 书房与书架整理, en: Organizing a study and bookshelves}
+      - {zh: 儿童玩具收纳, en: Storing children's toys}
+      - {zh: 季节性衣物换季整理, en: Seasonal clothing rotation}
+      - {zh: 玄关的收纳设计, en: Entryway storage design}
+      - {zh: 卫生间的防潮收纳, en: Moisture-proof bathroom storage}
+      - {zh: 家居清洁的日常流程, en: A daily home cleaning routine}
+      - {zh: 文件与票据的归档, en: Filing documents and receipts}
+      - {zh: 家居色彩搭配, en: Color schemes for home interiors}

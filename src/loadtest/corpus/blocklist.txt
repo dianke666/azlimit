@@ -1,0 +1,109 @@
+# 语料安全黑名单（Requirement 5.7）
+# 每行一个关键词，匹配时不区分大小写（英文统一按小写比较）；以 # 开头的行为注释。
+# 原则：只收录明确指向敏感内容的词组，避免拦截"选择""比赛""药材"等常用词。
+
+# ---- 政治人物 / 政党 / 选举 ----
+donald trump
+joe biden
+vladimir putin
+习近平
+毛泽东
+共产党
+国民党
+民进党
+总统大选
+竞选连任
+台独
+藏独
+疆独
+法轮功
+xi jinping
+communist party
+democratic party
+republican party
+presidential election
+election campaign
+
+# ---- 宗教极端 ----
+圣战
+极端主义
+伊斯兰国
+基地组织
+jihad
+al-qaeda
+extremist ideology
+
+# ---- 暴力血腥 ----
+恐怖袭击
+自杀式袭击
+大屠杀
+斩首
+砍杀
+虐杀
+枪击案
+terrorist attack
+suicide bombing
+massacre
+beheading
+mass shooting
+
+# ---- 色情 ----
+色情
+淫秽
+裸照
+成人视频
+性交
+porn
+pornography
+nude photos
+sexual intercourse
+
+# ---- 毒品 / 赌博 ----
+冰毒
+海洛因
+大麻种植
+吸毒
+贩毒
+网络赌博
+赌场开户
+六合彩
+methamphetamine
+cocaine
+drug trafficking
+online casino
+sports betting tips
+
+# ---- 违法犯罪手段 ----
+制造炸弹
+制作炸药
+洗钱
+诈骗话术
+黑客入侵
+盗刷信用卡
+翻墙软件
+make a bomb
+money laundering
+phishing kit
+credit card fraud
+how to hack
+
+# ---- 医疗诊断 / 处方 ----
+处方药
+用药剂量
+开处方
+you are diagnosed
+prescription dosage
+prescribe medication
+
+# ---- 荐股 / 保证收益 ----
+荐股
+推荐买入
+稳赚不赔
+保证收益
+保本高收益
+内幕消息
+guaranteed returns
+guaranteed profit
+stock tip
+buy this stock
+risk-free investment

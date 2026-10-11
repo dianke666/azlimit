@@ -1,0 +1,29 @@
+# /etc/systemd/system/loadtest-run.service
+# 单次 20 分钟压测。仅手动启动：sudo systemctl start loadtest-run
+# 有意不提供 [Install] 段，不要 enable（避免开机自动压测产生费用）。
+[Unit]
+Description=Azure GPT load test (manual one-shot, 20m)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=loadtest
+Group=loadtest
+WorkingDirectory=/opt/a_azure_limit
+EnvironmentFile=/opt/a_azure_limit/.env
+# ProtectHome=yes 下 ~/.cache 不可访问：tiktoken 编码缓存放在应用目录（部署时预热一次，见 README）
+Environment=TIKTOKEN_CACHE_DIR=/opt/a_azure_limit/data/tiktoken
+ExecStart=/opt/a_azure_limit/.venv/bin/loadtest run --duration 20m
+# 优雅停止：SIGTERM → 停止派发、drain ≤ 30s、刷写账本与报告
+KillSignal=SIGTERM
+KillMode=mixed
+TimeoutStopSec=60
+Restart=no
+
+# 基础加固
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/opt/a_azure_limit/data /opt/a_azure_limit/runs

@@ -1,0 +1,142 @@
+# 任务指令库（Requirement 14.4 / 14.6 / 14.7）
+# - 每条指令只用于对应语言的正文；中文 ≥ 30 条、英文 ≥ 30 条。
+# - 指令本身不含后缀；TaskCatalog 加载时统一附加 suffix（只在此处定义一次）。
+# - 指令须产生极短输出（max_tokens = 40），内容中性、安全。
+
+zh:
+  system_prompt: "你是简洁的助手，只根据用户提供的文本作答。"
+  suffix: "只输出答案，不要解释，不超过 30 字。"
+  tasks:
+    - id: zh-summary-one-sentence
+      text: "用一句话概括以上内容的主旨。"
+    - id: zh-keywords-3
+      text: "给出 3 个关键词，用逗号分隔。"
+    - id: zh-genre
+      text: "判断这段文字的体裁（说明文/评论/教程/新闻）。"
+    - id: zh-industry
+      text: "这些段落分别属于哪个行业？只回答行业名。"
+    - id: zh-title-20
+      text: "用不超过 20 个字给出一个标题。"
+    - id: zh-audience
+      text: "这段文字最适合哪类读者？只回答读者群体。"
+    - id: zh-tone
+      text: "判断文字的整体语气（客观/积极/谨慎/中性）。"
+    - id: zh-topic-word
+      text: "用一个词概括这些段落的共同话题。"
+    - id: zh-main-entity
+      text: "文中最核心的对象是什么？只回答名称。"
+    - id: zh-keywords-2
+      text: "提取 2 个最重要的名词，用顿号分隔。"
+    - id: zh-category
+      text: "为这些内容选一个最合适的栏目分类名。"
+    - id: zh-key-number
+      text: "文中最关键的一个数字或数据是什么？若没有，回答“无”。"
+    - id: zh-hashtags
+      text: "为这些内容写 3 个话题标签，以 # 开头。"
+    - id: zh-difficulty
+      text: "这段文字的阅读难度是入门、中级还是专业？"
+    - id: zh-purpose
+      text: "作者写这段文字的主要目的是什么？用一个短语回答。"
+    - id: zh-first-topic
+      text: "第一段主要讲了什么？用一个短语回答。"
+    - id: zh-last-topic
+      text: "最后一段主要讲了什么？用一个短语回答。"
+    - id: zh-paragraph-count
+      text: "以上共有几个独立段落？只回答数字。"
+    - id: zh-subtitle
+      text: "为最长的一段拟一个小标题。"
+    - id: zh-domain-term
+      text: "找出文中一个专业术语。"
+    - id: zh-time-sensitive
+      text: "这些内容是否具有时效性？回答“是”或“否”并给出一个词的理由。"
+    - id: zh-region
+      text: "文中提到的主要地区或国家是哪里？若没有，回答“未提及”。"
+    - id: zh-one-word-mood
+      text: "用一个形容词描述这段文字给人的感受。"
+    - id: zh-headline-news
+      text: "把以上内容改写成一句新闻标题。"
+    - id: zh-question
+      text: "根据以上内容提出一个读者可能关心的问题。"
+    - id: zh-takeaway
+      text: "读完后最值得记住的一点是什么？用一句话回答。"
+    - id: zh-format-type
+      text: "这段文字更像报告、说明、评论还是指南？"
+    - id: zh-related-field
+      text: "列出 2 个与内容相关的学科或领域，用逗号分隔。"
+    - id: zh-action-word
+      text: "用一个动词概括文中描述的主要活动。"
+    - id: zh-compare
+      text: "这些段落的话题是否相同？回答“相同”或“不同”。"
+    - id: zh-tagline
+      text: "为这些内容写一句简短的推荐语。"
+    - id: zh-subject-area
+      text: "这些内容属于哪个知识领域？只回答领域名。"
+
+en:
+  system_prompt: "You are a concise assistant. Answer only from the text provided by the user."
+  suffix: "Answer only, no explanation, under 20 words."
+  tasks:
+    - id: en-summary-one-sentence
+      text: "Summarize the passages above in one sentence."
+    - id: en-keywords-3
+      text: "List 3 keywords, comma-separated."
+    - id: en-genre
+      text: "Identify the genre (explainer, review, tutorial, or news)."
+    - id: en-industry
+      text: "Which industry does each passage belong to? Answer with names only."
+    - id: en-title-10
+      text: "Give a title in under 10 words."
+    - id: en-audience
+      text: "Who is the most likely target reader? Name the audience only."
+    - id: en-tone
+      text: "Describe the overall tone in one word (objective, positive, cautious, or neutral)."
+    - id: en-topic-word
+      text: "Name the common topic of these passages in one word."
+    - id: en-main-entity
+      text: "What is the central subject of the text? Give its name only."
+    - id: en-keywords-2
+      text: "Extract the 2 most important nouns, separated by a comma."
+    - id: en-category
+      text: "Pick the best section or category name for this content."
+    - id: en-key-number
+      text: "What is the single most important number in the text? If none, answer \"none\"."
+    - id: en-hashtags
+      text: "Write 3 hashtags for this content."
+    - id: en-difficulty
+      text: "Is the reading level beginner, intermediate, or expert?"
+    - id: en-purpose
+      text: "What is the author's main purpose? Answer with a short phrase."
+    - id: en-first-topic
+      text: "What is the first passage mainly about? Answer with a short phrase."
+    - id: en-last-topic
+      text: "What is the last passage mainly about? Answer with a short phrase."
+    - id: en-paragraph-count
+      text: "How many separate passages are above? Answer with a number."
+    - id: en-subtitle
+      text: "Write a subheading for the longest passage."
+    - id: en-domain-term
+      text: "Name one technical term used in the text."
+    - id: en-time-sensitive
+      text: "Is this content time-sensitive? Answer yes or no with a one-word reason."
+    - id: en-region
+      text: "Which country or region is mainly mentioned? If none, answer \"not mentioned\"."
+    - id: en-one-word-mood
+      text: "Give one adjective that describes how the text feels."
+    - id: en-headline-news
+      text: "Rewrite the content as a single news headline."
+    - id: en-question
+      text: "Ask one question a reader might have after reading this."
+    - id: en-takeaway
+      text: "What is the key takeaway? Answer in one sentence."
+    - id: en-format-type
+      text: "Is this closer to a report, an explanation, an opinion, or a guide?"
+    - id: en-related-field
+      text: "List 2 related fields or disciplines, comma-separated."
+    - id: en-action-word
+      text: "Give one verb that captures the main activity described."
+    - id: en-compare
+      text: "Do these passages share the same topic? Answer \"same\" or \"different\"."
+    - id: en-tagline
+      text: "Write a short one-line recommendation for this content."
+    - id: en-subject-area
+      text: "Which field of knowledge does this content belong to? Name the field only."
